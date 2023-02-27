@@ -1,6 +1,6 @@
 # GenericApp
 
-Generic App in C# (Unity). Tool framework, a linear/nonlinear/mixed Quest framework, ConfigLoader, API, NPC, Player, sample pipelines (Visual graph)
+App kit in C# (Unity). Tool framework, linear/nonlinear/mixed Quests, ConfigLoader, API, NPC, Player, sample pipelines (Visual graph)
 
 
 License (BSD)
