@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class ReviewWindow : Tool
+    public class ReviewWindow : Item
     {
         public float timeTillReset = 5f;
         public bool triggerTimer = false;

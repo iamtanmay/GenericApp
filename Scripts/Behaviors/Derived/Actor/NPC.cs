@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace AppStarter
 {
     //NPC class
-    public class NPC : Tool
+    public class NPC : Item
     {
         public Transform dialogueMount;
 
@@ -88,7 +88,7 @@ namespace AppStarter
         {
         }
 
-        public override void Activate(Tool tool)
+        public override void Activate(Item tool)
         {
         }
 

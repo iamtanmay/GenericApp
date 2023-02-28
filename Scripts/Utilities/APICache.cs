@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class APICache : MonoBehaviour
+namespace AppStarter
 {
-    public API API;
-
-    //Search for the API component
-    public void Initialise()
+    public class APICache : MonoBehaviour
     {
-        GameObject temp = GameObject.FindGameObjectWithTag("API");
+        public API API;
 
-        if (temp != null)
-            API = temp.GetComponent<API>();
-    }
+        //Search for the API component
+        public void Initialise()
+        {
+            GameObject temp = GameObject.FindGameObjectWithTag("API");
 
-    public void Awake()
-    {
-        Initialise();
+            if (temp != null)
+                API = temp.GetComponent<API>();
+        }
+
+        public void Awake()
+        {
+            Initialise();
+        }
     }
 }

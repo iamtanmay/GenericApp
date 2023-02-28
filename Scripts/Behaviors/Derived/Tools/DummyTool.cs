@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class DummyTool : Tool
+    public class DummyTool : Item
     {
         public override int Slot { get { return -1; } }
     }

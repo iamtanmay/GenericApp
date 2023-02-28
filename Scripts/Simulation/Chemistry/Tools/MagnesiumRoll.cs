@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class MagnesiumRoll : Tool
+    public class MagnesiumRoll : Item
     {
         public Transform Prefab_MagnesiumStrip;
         Transform newStrip, oldStrip;

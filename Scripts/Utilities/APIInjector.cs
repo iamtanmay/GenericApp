@@ -5,42 +5,45 @@ using Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class APIInjector : MonoBehaviour
+namespace AppStarter
 {
-    public API API;
-    public List<InstanceMethodInfo> APIMethods = new List<InstanceMethodInfo>();
-
-    public List<UnityEvent<InstanceMethodInfo[]>> injections = new List<UnityEvent<InstanceMethodInfo[]>>();
-
-    public object GetAsSystemObject()
+    public class APIInjector : MonoBehaviour
     {
-        return API;
-    }
+        public API API;
+        public List<InstanceMethodInfo> APIMethods = new List<InstanceMethodInfo>();
 
-    public void Inject()
-    {
-        if (API == null)
-            API = transform.GetComponent<API>();
+        public List<UnityEvent<InstanceMethodInfo[]>> injections = new List<UnityEvent<InstanceMethodInfo[]>>();
 
-        if (API == null)
-            return;
+        public object GetAsSystemObject()
+        {
+            return API;
+        }
 
-        MethodInfo[] APIMethodArray = API.GetType().GetMethods();
-        List<string> monobehaviorMethodNames = new List<string>();
+        public void Inject()
+        {
+            if (API == null)
+                API = transform.GetComponent<API>();
 
-        foreach (MethodInfo method in typeof(MonoBehaviour).GetMethods())
-            monobehaviorMethodNames.Add(method.Name);
+            if (API == null)
+                return;
 
-        foreach (MethodInfo method in APIMethodArray)
-            if (!monobehaviorMethodNames.Contains(method.Name))
-            {
-                InstanceMethodInfo newMethodInfo = new InstanceMethodInfo();
-                newMethodInfo.instance = API;
-                newMethodInfo.method = method;
-                APIMethods.Add(newMethodInfo);
-            }
+            MethodInfo[] APIMethodArray = API.GetType().GetMethods();
+            List<string> monobehaviorMethodNames = new List<string>();
 
-        foreach (UnityEvent<InstanceMethodInfo[]> injection in injections)
-            injection.Invoke(APIMethods.ToArray());
+            foreach (MethodInfo method in typeof(MonoBehaviour).GetMethods())
+                monobehaviorMethodNames.Add(method.Name);
+
+            foreach (MethodInfo method in APIMethodArray)
+                if (!monobehaviorMethodNames.Contains(method.Name))
+                {
+                    InstanceMethodInfo newMethodInfo = new InstanceMethodInfo();
+                    newMethodInfo.instance = API;
+                    newMethodInfo.method = method;
+                    APIMethods.Add(newMethodInfo);
+                }
+
+            foreach (UnityEvent<InstanceMethodInfo[]> injection in injections)
+                injection.Invoke(APIMethods.ToArray());
+        }
     }
 }

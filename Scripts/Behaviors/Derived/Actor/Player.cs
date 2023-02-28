@@ -15,7 +15,7 @@ namespace AppStarter
 
         public PlayerHand leftHand, rightHand;
 
-        public List<Tool> EquippedTools = new List<Tool>();
+        public List<Item> EquippedTools = new List<Item>();
 
         DummyTool _dummyTool;
 
@@ -57,7 +57,7 @@ namespace AppStarter
                 EquippedTools.Add(_dummyTool);
         }
 
-        public void Equip(Tool itool)
+        public void Equip(Item itool)
         {
             int newitemslot = itool.Slot;
 
@@ -92,9 +92,9 @@ namespace AppStarter
         private void OnTriggerEnter(Collider other)
         {
             Transform obj = other.transform;
-            Tool newTool;
+            Item newTool;
 
-            if (obj.TryGetComponent<Tool>(out newTool) || obj.parent.TryGetComponent<Tool>(out newTool))
+            if (obj.TryGetComponent<Item>(out newTool) || obj.parent.TryGetComponent<Item>(out newTool))
                 if (newTool.Slot == 0)
                     newTool.TriggerEquip();
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class Pipette : Tool
+    public class Pipette : Item
     {
         public Transform Prefab_liquidDrop;
 
@@ -37,7 +37,7 @@ namespace AppStarter
             }
         }
 
-        public override void Activate(Tool tool)
+        public override void Activate(Item tool)
         {
             //If its a container
             ChemicalContainer chemicalContainer;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class Quest : Tool
+    public class Quest : Item
     {
         public List<bool> objectiveFlags = new List<bool>();
 
@@ -48,6 +48,11 @@ namespace AppStarter
                 else
                     API.updateQuestEvent(typeID, instanceID, questID, true);
             }
+        }
+
+        public void AddItem(Item questItem)
+        {
+
         }
 
         public override void Activate()

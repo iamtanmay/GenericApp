@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class ChemicalContainer : Tool
+    public class ChemicalContainer : Item
     {
         public Color liquidColor;
 
@@ -35,7 +35,7 @@ namespace AppStarter
             }
         }
 
-        public override void Activate(Tool tool)
+        public override void Activate(Item tool)
         {
         }
 
@@ -53,9 +53,9 @@ namespace AppStarter
             {
             }
 
-            Tool tool;
+            Item tool;
 
-            exists = other.transform.TryGetComponent<Tool>(out tool);
+            exists = other.transform.TryGetComponent<Item>(out tool);
 
             if (exists)
                 tool.Activate(this);

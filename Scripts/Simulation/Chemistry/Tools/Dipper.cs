@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class Dipper : Tool
+    public class Dipper : Item
     {
         public bool burning = false;
 
@@ -29,7 +29,7 @@ namespace AppStarter
         {
         }
 
-        public override void Activate(Tool tool)
+        public override void Activate(Item tool)
         {
             //If its a container
             ChemicalContainer chemicalContainer;

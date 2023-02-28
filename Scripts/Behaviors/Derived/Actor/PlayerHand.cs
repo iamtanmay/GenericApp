@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class PlayerHand : Tool
+    public class PlayerHand : Item
     {
         public Material glovemat, handmat2, handmat, invisiblemat;
 
         //Equippable tools
         public Transform[] equippableTools;
 
-        public Tool equippedTool;
+        public Item equippedTool;
 
         public bool isSimulatedHand = false;
 
@@ -89,7 +89,7 @@ namespace AppStarter
                 handRenderer = transform.Find(handPrefix + "_Hand_MRTK_Rig/R_Hand").GetComponent<SkinnedMeshRenderer>();
 
                 for (int i=1; i<=equippableTools.Length; i++)
-                    equippableTools[i] = transform.Find(handPrefix + "_Hand_MRTK_Rig/R_Wrist/" + ((ToolType)i));
+                    equippableTools[i] = transform.Find(handPrefix + "_Hand_MRTK_Rig/R_Wrist/" + ((Tools)i));
 
                 if (!isSimulatedHand)
                     InitAnimation();
@@ -162,7 +162,7 @@ namespace AppStarter
         public void ActivateTool(Transform iobject)
         {
             iobject.gameObject.SetActive(true);
-            equippedTool = iobject.GetComponent<Tool>();
+            equippedTool = iobject.GetComponent<Item>();
             equippedTool.API = API;
         }
 

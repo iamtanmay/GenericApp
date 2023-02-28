@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class Ingredient : Tool
+    public class Ingredient : Item
     {
         float _interval = 1f;
         float _time = 0f;

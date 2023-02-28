@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class Forceps : Tool
+    public class Forceps : Item
     {
         public bool open = false;
 
@@ -22,7 +22,7 @@ namespace AppStarter
             anim.Play("forceps_close");
         }
 
-        public override void Activate(Tool tool)
+        public override void Activate(Item tool)
         {
         }
 

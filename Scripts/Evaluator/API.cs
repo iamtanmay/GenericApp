@@ -30,7 +30,7 @@ namespace AppStarter
         public Dictionary<string, MethodInfo> APIMethods;
 
         //Tools cache
-        public Tool[] sceneTools;
+        public Item[] sceneTools;
 
         //Quests
         public List<Transform> quests = new List<Transform>();
@@ -90,7 +90,7 @@ namespace AppStarter
 
         public void CacheAllTools()
         {
-            sceneTools = Containers.GetComponentsInChildren<Tool>();
+            sceneTools = Containers.GetComponentsInChildren<Item>();
         }
 
         public void ResetApp()
@@ -102,7 +102,7 @@ namespace AppStarter
         public void updateCurrentPriority(int currPriority)
         {
             Debug.Log("Updating current Event to " + currPriority);
-            foreach (Tool tool in sceneTools)
+            foreach (Item tool in sceneTools)
                 tool.currentpriority = currPriority;
         }
 
@@ -223,14 +223,14 @@ namespace AppStarter
         {
             if (iItem == null) return;
 
-            Tool tool = iItem.GetComponent<Tool>();
+            Item tool = iItem.GetComponent<Item>();
 
             //Search through children
             if (tool == null)
             {
                 foreach (Transform child in iItem)
                 {
-                    tool = child.GetComponent<Tool>();
+                    tool = child.GetComponent<Item>();
                     if (tool != null) break;
                 }
             }

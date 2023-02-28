@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class SafetyGoggles : Tool
+    public class SafetyGoggles : Item
     {
         public GameObject CameraOverlay;
 

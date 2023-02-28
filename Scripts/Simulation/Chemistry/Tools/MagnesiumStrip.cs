@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class MagnesiumStrip : Tool
+    public class MagnesiumStrip : Item
     {
         float _interval = 1f;
 

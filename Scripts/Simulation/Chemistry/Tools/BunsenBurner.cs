@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class BunsenBurner : Tool
+    public class BunsenBurner : Item
     {
         public int control_level = 0;
 
@@ -65,9 +65,9 @@ namespace AppStarter
 
         private void OnTriggerEnter(Collider other)
         {
-            Tool tool;
+            Item tool;
 
-            bool exists = other.transform.TryGetComponent<Tool>(out tool);
+            bool exists = other.transform.TryGetComponent<Item>(out tool);
 
             if (exists)
                 tool.Heat(temperature);
@@ -75,9 +75,9 @@ namespace AppStarter
 
         void OnTriggerExit(Collider other)
         {
-            Tool tool;
+            Item tool;
 
-            bool exists = other.transform.TryGetComponent<Tool>(out tool);
+            bool exists = other.transform.TryGetComponent<Item>(out tool);
 
             if (exists)
                 tool.Heat(API.RoomTemperature);

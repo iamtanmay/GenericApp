@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AppStarter
 {
-    public class SafetyGloves : Tool
+    public class SafetyGloves : Item
     {
         public override int Slot { get { return 1; } }
 
