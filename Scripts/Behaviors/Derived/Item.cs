@@ -6,10 +6,9 @@ using UnityEngine.Events;
 
 namespace AppStarter
 {
+    public enum Tools : int { None = -1, Other = 0, Forceps = 1, Dipper = 2, Dropper_Pipette = 3 }
 
-    public enum ToolType : int { None = -1, Other = 0, Forceps = 1, Dipper = 2, Dropper_Pipette = 3 }
-
-    public abstract class Tool : MonoBehaviour
+    public abstract class Item : MonoBehaviour
     {
         public Player player;
 
@@ -66,6 +65,11 @@ namespace AppStarter
                 Init();
                 isInit = true;
             }
+        }
+
+        public void SendEvent(string imessage, bool iflag)
+        {
+
         }
 
         public void ToggleHighlight(bool toggle)
@@ -168,7 +172,7 @@ namespace AppStarter
                         //If a forceps only pickup, check if hand has forceps equipped
                         if (onlyPickUpWithForceps)
                         {
-                            if (hand.equipped_tool.Equals(ToolType.Forceps))
+                            if (hand.equipped_tool.Equals(Tools.Forceps))
                                 PickUp(hand.transform);
                         }
                         else
@@ -244,7 +248,7 @@ namespace AppStarter
         public virtual void Equip(PlayerHand hand)
         {
             int B = -1;
-            bool isEquippableTool = ToolType.TryParse(typeID, out B);
+            bool isEquippableTool = Tools.TryParse(typeID, out B);
 
             if (isEquippableTool)
             {
@@ -289,7 +293,7 @@ namespace AppStarter
         {
         }
 
-        public virtual void Activate(Tool tool)
+        public virtual void Activate(Item tool)
         {
         }
 
